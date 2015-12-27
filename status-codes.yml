@@ -1,0 +1,101 @@
+---
+### 1xx 
+
+100:
+  reason: "Continue"
+  explanation: >
+    The client SHOULD continue with its request. This interim response is used to inform the client that the initial part of the request has been received and has not yet been rejected by the server. The client SHOULD continue by sending the remainder of the request or, if the request has already been completed, ignore this response. The server MUST send a final response after the request has been completed. See section 8.2.3 for detailed discussion of the use and handling of this status code.
+
+101: 
+  reason: "Switching Protocols"
+  explanation: >
+    The server understands and is willing to comply with the client's request, via the Upgrade message header field (section 14.42), for a change in the application protocol being used on this connection. The server will switch protocols to those defined by the response's Upgrade header field immediately after the empty line which terminates the 101 response.
+
+### 2xx
+
+200:
+  reason: "OK"
+  explanation: >
+    The request has succeeded. 
+
+201:
+  reason: "Created"
+  explanation: >
+    The request has been fulfilled and resulted in a new resource being created. The newly created resource can be referenced by the URI(s) returned in the entity of the response, with the most specific URI for the resource given by a Location header field. The response SHOULD include an entity containing a list of resource characteristics and location(s) from which the user or user agent can choose the one most appropriate. The entity format is specified by the media type given in the Content-Type header field. The origin server MUST create the resource before returning the 201 status code. If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead.
+
+202:
+  reason: "Accepted"
+  explanation: >
+    The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place. There is no facility for re-sending a status code from an asynchronous operation such as this.
+
+203:
+  reason: "Non-Authoritative Information"
+  explanation: >
+    The returned metainformation in the entity-header is not the definitive set as available from the origin server, but is gathered from a local or a third-party copy. The set presented MAY be a subset or superset of the original version. For example, including local annotation information about the resource might result in a superset of the metainformation known by the origin server. Use of this response code is not required and is only appropriate when the response would otherwise be 200 (OK).
+
+204:
+  reason: "No content"
+  explanation: >
+    The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation. The response MAY include new or updated metainformation in the form of entity-headers, which if present SHOULD be associated with the requested variant.
+
+205:
+  reason: "Reset Content"
+  explanation: >
+    The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent. This response is primarily intended to allow input for actions to take place via user input, followed by a clearing of the form in which the input is given so that the user can easily initiate another input action. The response MUST NOT include an entity.
+
+206:
+  reason: "Partial Content"
+  explanation: >
+    The server has fulfilled the partial GET request for the resource. The request MUST have included a Range header field (section 14.35) indicating the desired range, and MAY have included an If-Range header field (section 14.27) to make the request conditional.
+
+### 3xx
+
+          | "300"  ; Section 10.3.1: Multiple Choices
+300: 
+  reason: "Multiple Choices"
+  explanation: >
+
+301:
+  reason: "Moved Permanently"
+  explanation: >
+
+302:
+  reason: "Found"
+  explanation: >
+
+303:
+  reason: "See Other"
+  explanation: >
+
+
+          | "301"  ; Section 10.3.2: Moved Permanently
+          | "302"  ; Section 10.3.3: Found
+          | "303"  ; Section 10.3.4: See Other
+          | "304"  ; Section 10.3.5: Not Modified
+          | "305"  ; Section 10.3.6: Use Proxy
+          | "307"  ; Section 10.3.8: Temporary Redirect
+          | "400"  ; Section 10.4.1: Bad Request
+          | "401"  ; Section 10.4.2: Unauthorized
+          | "402"  ; Section 10.4.3: Payment Required
+          | "403"  ; Section 10.4.4: Forbidden
+          | "404"  ; Section 10.4.5: Not Found
+          | "405"  ; Section 10.4.6: Method Not Allowed
+          | "406"  ; Section 10.4.7: Not Acceptable
+          | "407"  ; Section 10.4.8: Proxy Authentication Required
+          | "408"  ; Section 10.4.9: Request Time-out
+          | "409"  ; Section 10.4.10: Conflict
+          | "410"  ; Section 10.4.11: Gone
+          | "411"  ; Section 10.4.12: Length Required
+          | "412"  ; Section 10.4.13: Precondition Failed
+          | "413"  ; Section 10.4.14: Request Entity Too Large
+          | "414"  ; Section 10.4.15: Request-URI Too Large
+          | "415"  ; Section 10.4.16: Unsupported Media Type
+          | "416"  ; Section 10.4.17: Requested range not satisfiable
+          | "417"  ; Section 10.4.18: Expectation Failed
+          | "500"  ; Section 10.5.1: Internal Server Error
+          | "501"  ; Section 10.5.2: Not Implemented
+          | "502"  ; Section 10.5.3: Bad Gateway
+          | "503"  ; Section 10.5.4: Service Unavailable
+          | "504"  ; Section 10.5.5: Gateway Time-out
+          | "505"  ; Section 10.5.6: HTTP Version not supported
+
