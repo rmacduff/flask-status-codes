@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}HTTP Status Codes{% endblock %}
+{% block page_content %}
+<h1>HTTP Status Codes</h1>
+<table class="table table-hover">
+    <tr>
+        <th>Code</th>
+        <th>Reason</th>
+        <th>Explanation</th>
+    </tr>
+{% for code, details in codes.iteritems() %}
+    <tr>
+        <td><a href="/{{ code }}">{{ code }}</a></td>
+        <td>{{ details['reason'] }}</td>
+        <td>{{ details['explanation'] }}</td>
+    </tr>
+    {% endfor %}
+</table> 
+<p>Content from W3C's Status Code Definitions page (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a>)</p>
+{% endblock %}

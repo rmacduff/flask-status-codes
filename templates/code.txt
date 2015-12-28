@@ -1,0 +1,3 @@
+{{ code }}
+{{ details['reason'] }}
+{{ details['explanation'] }}
