@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Status code not found{% endblock %}
+{% block title %}Status: {{ code }}{% endblock %}
 {% block page_content %}
 <h1>{{ code }}</h1>
 <p>{{ details['reason'] }}</p>
